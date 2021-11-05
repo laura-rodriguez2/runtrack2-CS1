@@ -1,10 +1,10 @@
 <?php 
-var_dump($_GET);
-foreach($_GET as $value){
+var_dump($_POST);
+foreach($_POST as $value){
 }
 ?>
 
-<form action="../job01/index.php" method="get">
+<form action="../job03/index.php" method="POST">
 <label for="f_name">First name : </label>
 <input type="text" id="f_name" name="f_name"> <br> <br>
 <label for="f_name">Last name : </label>
