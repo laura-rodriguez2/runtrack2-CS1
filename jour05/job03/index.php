@@ -1,6 +1,6 @@
 <?php
-echo (hello());
-function hello(){
+echo (gethello());
+function gethello(){
     $str="Hello LaPlateforme";
     return($str);
 }
