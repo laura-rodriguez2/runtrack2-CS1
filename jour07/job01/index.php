@@ -7,7 +7,7 @@ if(isset($_SESSION['nbvisite'])){
 if(isset($_POST['reset'])){
     $_SESSION['nbvisite']=0;
 }
-echo($_SESSION['nbvisite'];
+echo($_SESSION['nbvisite']);
 
 ?>
 
