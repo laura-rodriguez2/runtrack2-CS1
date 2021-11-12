@@ -1,8 +1,9 @@
+
 <?php 
 
 $bdd = mysqli_connect('localhost','root','','jour08');
 mysqli_set_charset($bdd,'utf8');
-$requete = mysqli_query($bdd,"SELECT * FROM etudiants");
+$requete = mysqli_query($bdd,"SELECT * FROM etudiants WHERE YEAR (NOW()) - YEAR (naissance) <= 18");
 $etudiants = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
 ?>

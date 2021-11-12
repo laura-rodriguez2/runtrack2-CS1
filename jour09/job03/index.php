@@ -1,29 +1,31 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-<table border="1">
-<?php
-$db=mysqli_connect('localhost','root',"",'jour08');
-$query=mysqli_query($db,'SELECT prenom, nom, naissance from etudiants WHERE etudiants = "Femme" order by id');
-$resultassoc=mysqli_fetch_assoc($query);
-$resultall=mysqli_fetch_all($query);
-foreach($resultassoc as $key=>$values){
-    echo "<th>$key</th>";
-}
-    echo "<tr>";
-foreach($resultassoc as $key=>$values){
-    echo "<td>$values</td>";
-}
-    echo "</tr>";
+<?php 
 
-foreach($resultall as $key=>$values){
-    echo "<tr>";
-    foreach ($values as $key=>$values) {
-        echo "<td>$values</td>";
-}
-        echo "</tr>";
-}
+$bdd = mysqli_connect('localhost','root','','jour08');
+mysqli_set_charset($bdd,'utf8');
+$requete = mysqli_query($bdd,"SELECT nom,prenom,naissance FROM etudiants WHERE sexe = 'Femme'");
+$etudiants = mysqli_fetch_all($requete,MYSQLI_ASSOC);
+
 ?>
+<html>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Naissance</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php 
+        foreach($etudiants as $etudiant){
+            echo '<tr>';
+            echo '<td>'.$etudiant['prenom'].' '.'</td>';
+            echo '<td>'.$etudiant['nom'].' '.'</td>';
+            echo '<td>'.$etudiant['naissance'].' '.'</td>';
+            echo '</tr>';
+        }
+?>
+    </tbody>
 </table>
 </html>
+
